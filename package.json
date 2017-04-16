@@ -1,0 +1,11 @@
+{
+  "name": "Instagram_Bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/IgorKonovalov/Instagram_Bot.git",
+  "author": "Igor Konovalov <konovalov.avp@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "selenium-webdriver": "^3.3.0"
+  }
+}
