@@ -5,7 +5,16 @@
   "repository": "https://github.com/IgorKonovalov/Instagram_Bot.git",
   "author": "Igor Konovalov <konovalov.avp@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "webpack -p --progress"
+  },
   "dependencies": {
     "selenium-webdriver": "^3.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.4.0",
+    "webpack": "^2.4.1"
   }
 }
