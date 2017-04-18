@@ -6,7 +6,8 @@
   "author": "Igor Konovalov <konovalov.avp@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack -p --progress"
+    "build": "webpack -p --progress --colors",
+    "build:watch": "webpack --watch"
   },
   "dependencies": {
     "selenium-webdriver": "^3.3.0"

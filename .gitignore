@@ -1,4 +1,4 @@
 node_modules
 assets/chromedriver.exe
-dist
+build
 debug.log
