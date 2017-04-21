@@ -4,7 +4,8 @@ const fs = require('fs')
 
 let nodeModules = {}
 
-fs.readdirSync('node_modules')
+fs
+	.readdirSync('node_modules')
 	.filter(function(x) {
 		return ['.bin'].indexOf(x) === -1
 	})
@@ -35,7 +36,12 @@ module.exports = {
 	},
 	externals: nodeModules,
 	plugins: [
-    new webpack.IgnorePlugin(/\.(css|less)$/)
-  ],
+		new webpack.IgnorePlugin(/\.(css|less)$/),
+		new webpack.BannerPlugin({
+			banner: 'require("source-map-support").install();',
+			raw: true,
+			entryOnly: false
+		})
+	],
 	devtool: 'sourcemap'
 }
