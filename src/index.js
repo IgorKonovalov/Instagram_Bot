@@ -1,16 +1,18 @@
-import webdriver, {By, until} from 'selenium-webdriver'
-import {USERNAME, PASSWORD} from './.env'
-import {loginPath, passwordPath, loginButtonPath} from './paths'
+import webdriver from 'selenium-webdriver'
+import login from './login'
+import likeByTags from './likeByTags'
 
-const driver = new webdriver.Builder().forBrowser('chrome').build()
+const chromeCapabilities = webdriver.Capabilities.chrome()
+const chromeOptions = {
+	args: ['--dns-prefetch-disable', '--no-sandbox', '--lang=en-US']
+}
+chromeCapabilities.set('chromeOptions', chromeOptions)
+
+const driver = new webdriver.Builder()
+	.withCapabilities(chromeCapabilities)
+	.build()
 
 driver.get('http://www.instagram.com')
-driver.findElement(By.className('_fcn8k')).click()
-
-const login = driver.findElement(By.xpath(loginPath))
-const password = driver.findElement(By.xpath(passwordPath))
-const loginButton = driver.findElement(By.xpath(loginButtonPath))
-driver.wait(until.elementIsVisible(login), 100)
-login.sendKeys(USERNAME)
-password.sendKeys(PASSWORD)
-loginButton.click()
+login(driver)
+driver.manage().timeouts().setScriptTimeout(30);
+likeByTags(driver)
