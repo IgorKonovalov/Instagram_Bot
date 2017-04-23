@@ -1,4 +1,4 @@
-import {loginPath, passwordPath, loginButtonPath} from './constants'
+import {loginPath, passwordPath, loginButtonPath} from './config'
 import {USERNAME, PASSWORD} from './.env'
 import {By, until} from 'selenium-webdriver'
 
