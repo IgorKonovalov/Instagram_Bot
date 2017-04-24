@@ -7,6 +7,8 @@ export default function(driver) {
 		driver.sleep(2000)
 		driver.get(`https://www.instagram.com/explore/tags/${tag}`)
 
+		driver.findElement(By.className('_glz1g')).click()
+		
 		const pendingElements = driver.findElements(By.className('_ovg3g'))
 
 		pendingElements.then(elements => {
@@ -15,7 +17,13 @@ export default function(driver) {
 				.then(elem => {
 					elem.forEach(elem => {
 						elem.click()
-						driver.sleep(3000)
+						driver.wait(
+							until.elementLocated(
+								By.xpath(
+									'/html/body/div[2]/div/div[2]/div/article/div[2]/section[1]/a[1]'
+								)
+							)
+						)
 						driver
 							.findElement(
 								By.xpath(
@@ -25,7 +33,6 @@ export default function(driver) {
 							.click()
 						driver.findElement(By.className('_3eajp')).click()
 						likes++
-						console.log(tag, likes)
 					})
 				})
 				.catch(err => console.log(err))
